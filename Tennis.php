@@ -12,6 +12,7 @@ class Tennis
      * @var string
      */
     private $secondPlayerName;
+    private $scoreTable;
 
     /**
      * Tennis constructor.
@@ -26,35 +27,30 @@ class Tennis
 
     public function getScore()
     {
-        $scoreTable = [
+        $this->scoreTable = [
             0 => 'Love',
             1 => 'Fifteen',
             2 => 'Thirty',
             3 => 'Forty',
         ];
 
-        if ($this->firstPlayerScore != $this->secondPlayerScore) {
-            if ($this->secondPlayerScore > 3 || $this->firstPlayerScore > 3) {
-                $advPlayer = $this->secondPlayerScore > $this->firstPlayerScore
-                    ? $this->secondPlayerName
-                    : $this->firstPlayerName;
-
-                if (abs($this->firstPlayerScore - $this->secondPlayerScore) > 1) {
-                    return $advPlayer . ' Win.';
+        if ($this->isScoreDifferent()) {
+            if ($this->isAdv()) {
+                if ($this->isAdvPlayerWin()) {
+                    return $this->getAdvPlayer() . ' Win.';
                 }
 
-                return $advPlayer . ' Adv.';
+                return $this->getAdvPlayer() . ' Adv.';
             }
 
-            return $scoreTable[$this->firstPlayerScore] . ' ' . $scoreTable[$this->secondPlayerScore];
+            return $this->lookupScore();
         }
 
-        if ($this->firstPlayerScore == 3) {
-            return 'Deuce';
+        if ($this->isDeuce()) {
+            return $this->deuce();
         }
 
-
-        return $scoreTable[$this->firstPlayerScore] . ' All';
+        return $this->sameScore();
     }
 
     public function givenFirstPlayerScore()
@@ -79,5 +75,73 @@ class Tennis
         for ($i = 0; $i < $times; $i++) {
             $this->givenSecondPlayerScore();
         }
+    }
+
+    /**
+     * @return bool
+     */
+    private function isAdvPlayerWin(): bool
+    {
+        return abs($this->firstPlayerScore - $this->secondPlayerScore) > 1;
+    }
+
+    /**
+     * @return string
+     */
+    private function getAdvPlayer(): string
+    {
+        $advPlayer = $this->secondPlayerScore > $this->firstPlayerScore
+            ? $this->secondPlayerName
+            : $this->firstPlayerName;
+
+        return $advPlayer;
+    }
+
+    /**
+     * @return bool
+     */
+    private function isAdv(): bool
+    {
+        return $this->secondPlayerScore > 3 || $this->firstPlayerScore > 3;
+    }
+
+    /**
+     * @return bool
+     */
+    private function isScoreDifferent(): bool
+    {
+        return $this->firstPlayerScore != $this->secondPlayerScore;
+    }
+
+    /**
+     * @return string
+     */
+    private function lookupScore(): string
+    {
+        return $this->scoreTable[$this->firstPlayerScore] . ' ' . $this->scoreTable[$this->secondPlayerScore];
+    }
+
+    /**
+     * @return bool
+     */
+    private function isDeuce(): bool
+    {
+        return $this->firstPlayerScore == 3;
+    }
+
+    /**
+     * @return string
+     */
+    private function deuce(): string
+    {
+        return 'Deuce';
+    }
+
+    /**
+     * @return string
+     */
+    private function sameScore(): string
+    {
+        return $this->scoreTable[$this->firstPlayerScore] . ' All';
     }
 }
