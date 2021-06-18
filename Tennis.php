@@ -25,7 +25,7 @@ class Tennis
         }
 
         if ($this->secondPlayerScore == 1) {
-            return 'Love Fifteen';
+            return 'Love ' . $scoreTable[$this->secondPlayerScore];
         }
 
         return 'Love All';
