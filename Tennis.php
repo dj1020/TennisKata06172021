@@ -22,6 +22,6 @@ class Tennis
 
     public function givenFirstPlayerScore()
     {
-        $this->firstPlayerScore = 1;
+        $this->firstPlayerScore++;
     }
 }
