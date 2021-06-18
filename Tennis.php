@@ -24,7 +24,7 @@ class Tennis
             return $scoreTable[$this->firstPlayerScore] . ' Love';
         }
 
-        if ($this->secondPlayerScore == 1) {
+        if ($this->secondPlayerScore > 0) {
             return 'Love ' . $scoreTable[$this->secondPlayerScore];
         }
 
