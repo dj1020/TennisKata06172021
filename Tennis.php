@@ -3,6 +3,7 @@
 class Tennis
 {
     private $firstPlayerScore = 0;
+    private $secondPlayerScore = 0;
 
     /**
      * Tennis constructor.
@@ -36,5 +37,10 @@ class Tennis
         for ($i = 0; $i < $times; $i++) {
             $this->givenFirstPlayerScore();
         }
+    }
+
+    public function givenSecondPlayerScore()
+    {
+        $this->secondPlayerScore++;
     }
 }
