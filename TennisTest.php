@@ -3,6 +3,7 @@
 
 use PHPUnit\Framework\TestCase;
 
+require __DIR__ . '/Tennis.php';
 class TennisTest extends TestCase
 {
 
