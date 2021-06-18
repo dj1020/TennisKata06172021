@@ -2,7 +2,7 @@
 
 class Tennis
 {
-    private $firstPlayerScore = 0;
+    private $firstPlayerScore  = 0;
     private $secondPlayerScore = 0;
 
     /**
@@ -22,6 +22,10 @@ class Tennis
 
         if ($this->firstPlayerScore > 0) {
             return $scoreTable[$this->firstPlayerScore] . ' Love';
+        }
+
+        if ($this->secondPlayerScore == 1) {
+            return 'Love Fifteen';
         }
 
         return 'Love All';
