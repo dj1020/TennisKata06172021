@@ -115,6 +115,16 @@ class TennisTest extends TestCase
         $this->scoreShouldBe('Ken Adv.');
     }
 
+    /**
+     * @test
+     */
+    public function Game_is_SecondPlayer_Adv(): void
+    {
+        $this->givenDeuce();
+        $this->tennis->givenSecondPlayerScore();
+        $this->scoreShouldBe('Tom Adv.');
+    }
+
 
     private function scoreShouldBe($expected): void
     {
