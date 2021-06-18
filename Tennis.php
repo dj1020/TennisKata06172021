@@ -4,12 +4,18 @@ class Tennis
 {
     private $firstPlayerScore  = 0;
     private $secondPlayerScore = 0;
+    /**
+     * @var string
+     */
+    private $firstPlayerName;
 
     /**
      * Tennis constructor.
+     * @param string $firstPlayerName
      */
-    public function __construct()
+    public function __construct(string $firstPlayerName)
     {
+        $this->firstPlayerName = $firstPlayerName;
     }
 
     public function getScore()
@@ -23,7 +29,7 @@ class Tennis
 
         if ($this->firstPlayerScore != $this->secondPlayerScore) {
             if ($this->firstPlayerScore == 4) {
-                return 'Ken Adv.';
+                return $this->firstPlayerName . ' Adv.';
             }
 
             return $scoreTable[$this->firstPlayerScore] . ' ' . $scoreTable[$this->secondPlayerScore];
