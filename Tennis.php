@@ -34,7 +34,7 @@ class Tennis
         ];
 
         if ($this->firstPlayerScore != $this->secondPlayerScore) {
-            if ($this->firstPlayerScore == 4) {
+            if ($this->firstPlayerScore > 3) {
                 return $this->firstPlayerName . ' Adv.';
             }
             if ($this->secondPlayerScore == 4) {
