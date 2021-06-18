@@ -34,11 +34,13 @@ class Tennis
         ];
 
         if ($this->firstPlayerScore != $this->secondPlayerScore) {
+            if ($this->secondPlayerScore > 3) {
+                if ($this->secondPlayerScore > $this->firstPlayerScore) {
+                    return $this->secondPlayerName . ' Adv.';
+                }
+            }
             if ($this->firstPlayerScore > 3) {
                 return $this->firstPlayerName . ' Adv.';
-            }
-            if ($this->secondPlayerScore == 4) {
-                return $this->secondPlayerName . ' Adv.';
             }
 
             return $scoreTable[$this->firstPlayerScore] . ' ' . $scoreTable[$this->secondPlayerScore];
