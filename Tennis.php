@@ -13,6 +13,10 @@ class Tennis
 
     public function getScore()
     {
+        if ($this->firstPlayerScore == 1) {
+            return 'Fifteen Love';
+        }
+
         return 'Love All';
     }
 
