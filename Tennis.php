@@ -15,17 +15,14 @@ class Tennis
     public function getScore()
     {
         $scoreTable = [
+            0 => 'Love',
             1 => 'Fifteen',
             2 => 'Thirty',
             3 => 'Forty',
         ];
 
-        if ($this->firstPlayerScore > 0) {
-            return $scoreTable[$this->firstPlayerScore] . ' Love';
-        }
-
-        if ($this->secondPlayerScore > 0) {
-            return 'Love ' . $scoreTable[$this->secondPlayerScore];
+        if ($this->firstPlayerScore != $this->secondPlayerScore) {
+            return $scoreTable[$this->firstPlayerScore] . ' ' . $scoreTable[$this->secondPlayerScore];
         }
 
         return 'Love All';
