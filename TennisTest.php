@@ -11,7 +11,7 @@ class TennisTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->tennis = new Tennis('Ken');
+        $this->tennis = new Tennis('Ken', 'Tom');
     }
 
     /**
