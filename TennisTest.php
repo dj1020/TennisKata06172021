@@ -36,11 +36,9 @@ class TennisTest extends TestCase
      */
     public function Game_is_Thirty_Love(): void
     {
-        $this->tennis->givenFirstPlayerScore();
-        $this->tennis->givenFirstPlayerScore();
+        $this->tennis->givenFirstPlayerScoreTimes(2);
         $this->scoreShouldBe('Thirty Love');
     }
-
 
 
     private function scoreShouldBe($expected): void

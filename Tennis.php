@@ -13,11 +13,13 @@ class Tennis
 
     public function getScore()
     {
-        if ($this->firstPlayerScore == 1) {
-            return 'Fifteen Love';
-        }
-        if ($this->firstPlayerScore == 2) {
-            return 'Thirty Love';
+        $scoreTable = [
+            1 => 'Fifteen',
+            2 => 'Thirty',
+        ];
+
+        if ($this->firstPlayerScore > 0) {
+            return $scoreTable[$this->firstPlayerScore] . ' Love';
         }
 
         return 'Love All';
@@ -26,5 +28,12 @@ class Tennis
     public function givenFirstPlayerScore()
     {
         $this->firstPlayerScore++;
+    }
+
+    public function givenFirstPlayerScoreTimes(int $times)
+    {
+        for ($i = 0; $i < $times; $i++) {
+            $this->givenFirstPlayerScore();
+        }
     }
 }
