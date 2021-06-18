@@ -101,8 +101,7 @@ class TennisTest extends TestCase
      */
     public function Game_is_Deuce(): void
     {
-        $this->tennis->givenFirstPlayerScoreTimes(3);
-        $this->tennis->givenSecondPlayerScoreTimes(3);
+        $this->givenDeuce();
         $this->scoreShouldBe('Deuce');
     }
 
@@ -110,5 +109,11 @@ class TennisTest extends TestCase
     private function scoreShouldBe($expected): void
     {
         $this->assertEquals($expected, $this->tennis->getScore());
+    }
+
+    private function givenDeuce(): void
+    {
+        $this->tennis->givenFirstPlayerScoreTimes(3);
+        $this->tennis->givenSecondPlayerScoreTimes(3);
     }
 }
