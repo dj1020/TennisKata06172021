@@ -12,6 +12,6 @@ class Tennis
 
     public function getScore()
     {
-
+        return '';
     }
 }
