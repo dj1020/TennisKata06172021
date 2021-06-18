@@ -25,11 +25,7 @@ class Tennis
             return $scoreTable[$this->firstPlayerScore] . ' ' . $scoreTable[$this->secondPlayerScore];
         }
 
-        if ($this->firstPlayerScore == 1) {
-            return $scoreTable[$this->firstPlayerScore] . ' All';
-        }
-
-        return 'Love All';
+        return $scoreTable[$this->firstPlayerScore] . ' All';
     }
 
     public function givenFirstPlayerScore()
