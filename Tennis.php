@@ -22,6 +22,10 @@ class Tennis
         ];
 
         if ($this->firstPlayerScore != $this->secondPlayerScore) {
+            if ($this->firstPlayerScore == 4) {
+                return 'Ken Adv.';
+            }
+
             return $scoreTable[$this->firstPlayerScore] . ' ' . $scoreTable[$this->secondPlayerScore];
         }
 
