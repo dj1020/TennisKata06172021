@@ -4,17 +4,26 @@
 use PHPUnit\Framework\TestCase;
 
 require __DIR__ . '/Tennis.php';
+
 class TennisTest extends TestCase
 {
+    private $tennis;
+
+    protected function setUp(): void
+    {
+        $this->tennis = new Tennis();
+    }
 
     /**
      * @test
      */
     public function Game_is_Love_All(): void
     {
-        $expected = 'Love All';
-        $tennis = new Tennis();
-        $actual = $tennis->getScore();
-        $this->assertEquals($expected, $actual);
+        $this->scoreShouldBe('Love All');
+    }
+
+    private function scoreShouldBe($expected): void
+    {
+        $this->assertEquals($expected, $this->tennis->getScore());
     }
 }
