@@ -39,6 +39,10 @@ class Tennis
                     ? $this->secondPlayerName
                     : $this->firstPlayerName;
 
+                if ($this->firstPlayerScore - $this->secondPlayerScore > 1) {
+                    return $advPlayer . ' Win.';
+                }
+
                 return $advPlayer . ' Adv.';
             }
 
