@@ -47,4 +47,11 @@ class Tennis
     {
         $this->secondPlayerScore++;
     }
+
+    public function givenSecondPlayerScoreTimes(int $times)
+    {
+        for ($i = 0; $i < $times; $i++) {
+            $this->givenSecondPlayerScore();
+        }
+    }
 }
