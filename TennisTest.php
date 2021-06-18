@@ -76,6 +76,16 @@ class TennisTest extends TestCase
         $this->scoreShouldBe('Love Forty');
     }
 
+    /**
+     * @test
+     */
+    public function Game_is_Fifteen_All(): void
+    {
+        $this->tennis->givenFirstPlayerScoreTimes(1);
+        $this->tennis->givenSecondPlayerScoreTimes(1);
+        $this->scoreShouldBe('Fifteen All');
+    }
+
 
     private function scoreShouldBe($expected): void
     {
