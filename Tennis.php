@@ -4,14 +4,10 @@ class Tennis
 {
     private $firstPlayerScore  = 0;
     private $secondPlayerScore = 0;
-    /**
-     * @var string
-     */
+
     private $firstPlayerName;
-    /**
-     * @var string
-     */
     private $secondPlayerName;
+
     private $scoreTable;
 
     /**
@@ -34,23 +30,16 @@ class Tennis
             3 => 'Forty',
         ];
 
-        if ($this->isScoreDifferent()) {
-            if ($this->isAdv()) {
-                if ($this->isAdvPlayerWin()) {
-                    return $this->getAdvPlayer() . ' Win.';
-                }
+        return $this->isScoreDifferent()
+            ? ($this->isAdv()
+                ? ($this->isAdvPlayerWin()
+                    ? $this->getAdvPlayer() . ' Win.'
+                    : $this->getAdvPlayer() . ' Adv.')
+                : $this->lookupScore())
+            : ($this->isDeuce()
+                ? $this->deuce()
+                : $this->sameScore());
 
-                return $this->getAdvPlayer() . ' Adv.';
-            }
-
-            return $this->lookupScore();
-        }
-
-        if ($this->isDeuce()) {
-            return $this->deuce();
-        }
-
-        return $this->sameScore();
     }
 
     public function givenFirstPlayerScore()
